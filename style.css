@@ -2,7 +2,7 @@
 Located at https://fonts.google.com/specimen/Varela+Round?sidebar.open&selection.family=Varela+Round */
 @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 
-/* The Css against * remove the defualt styling provided by the browser */
+/* The Css against below removes the defualt styling provided by the browser */
 * {
     margin: 0;
     padding: 0;
@@ -71,6 +71,7 @@ form button:hover {
     /* Adds even space between the button against the task */
     justify-content: space-between;
     align-items: center;
+    transition: all 1s ease;
 }
 
 .todo li {
@@ -94,3 +95,76 @@ form button:hover {
 .todo-item {
     padding: 0rem 0.5rem;
 }
+
+
+
+footer {
+    position:fixed;
+    left:0px;
+    bottom:0px;
+    height:auto;
+    width:100%;
+    background:white;
+    text-align: center;
+ }
+
+ .cv:link,
+ .cv:visited {
+    cursor: pointer;
+    color: blue;
+    text-decoration: none;
+ }
+
+ .fa-check-square,
+ .fa-trash {
+     pointer-events: none;
+ }
+
+ .completed {
+     text-decoration: line-through;
+     opacity: 0.5;
+ }
+
+ .fall {
+     transform: translateY(8rem) rotateZ(20deg);
+     opacity: 0;
+ }
+
+ /* Remove all styles to the new filter */
+ select {
+     -webkit-appearance: none;
+     -moz-appearance: none;
+     appearance: none;
+     outline: none;
+     box-shadow: none;
+     border: none;
+ }
+
+ .select {
+     margin: 1rem;
+     position: relative;
+     overflow: hidden;
+ }
+
+ select{
+     color: blue;
+     width: 10rem;
+     cursor: pointer;
+     padding: 1rem;
+ }
+
+ .select::after {
+     content: "\25bc";
+     position: absolute;
+     background: rgb(155, 121, 80);
+     top: 0;
+     right: 0;
+     padding: 1rem;
+     pointer-events: none;
+     transition: all 0.3s ease;
+ }
+
+ .select:hover::after {
+    background: white;
+    color: rgb(155, 121, 80);
+ }

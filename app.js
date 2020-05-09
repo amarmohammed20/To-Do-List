@@ -1,19 +1,13 @@
-// Moving forward I need to use Jquery to format the prompt box
-
-//A prompt on loading the page to get the username for the H1 Title
-window.onload = function () {
-    const usersname = prompt("What is your name? Even a nick name will do");
-
-    this.document.getElementById('username').innerHTML = `<h1> ${usersname} To Do List </h1>`;
-};
-
 //Selectors
 const todoInput = document.querySelector('.todo-input');
 const todoButton = document.querySelector('.todo-button');
 const todoList = document.querySelector('.todo-list');
+const filterOption = document.querySelector('.filter-todo');
 
 //Event Listners
 todoButton.addEventListener('click', addToDo);
+todoList.addEventListener('click', deleteCheck);
+filterOption.addEventListener('click', filterTodo);
 
 //Functions
 
@@ -42,4 +36,29 @@ function addToDo(event) {
     todoList.appendChild(todoDiv);
     //Clear to do input value
     todoInput.value = '';
+    }
+
+function deleteCheck(e) {
+    const item = e.target;
+    //Delete Todo
+    if(item.classList[0] === "trash-btn") {
+        const todo = item.parentElement;
+        //Animation
+        todo.classList.add('fall');
+        todo.addEventListener('transitionend', function() {
+            todo.remove();
+        });
+    }
+
+    if(item.classList[0] === "complete-btn") {
+        const todo = item.parentElement;
+        todo.classList.toggle('completed')
+    }
+}
+
+function filterTodo(e) {
+    const todos = todoList.childNodes;
+    todo.forEach(function(todo) {
+        switch(e)
+    });
 }
