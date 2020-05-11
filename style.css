@@ -130,7 +130,8 @@ footer {
      opacity: 0;
  }
 
- /* Remove all styles to the new filter */
+ /* Start of styling for the filter box 
+  Remove all styles to the new filter */
  select {
      -webkit-appearance: none;
      -moz-appearance: none;
@@ -168,3 +169,4 @@ footer {
     background: white;
     color: rgb(155, 121, 80);
  }
+  /* End of styling for the filter option */

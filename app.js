@@ -52,13 +52,35 @@ function deleteCheck(e) {
 
     if(item.classList[0] === "complete-btn") {
         const todo = item.parentElement;
-        todo.classList.toggle('completed')
+        todo.classList.toggle('completed');
     }
 }
 
+//The functions is built enabling the three filter options to work
 function filterTodo(e) {
+    //Brings back all the children of the HTML element ul which is the list of the tasks 
     const todos = todoList.childNodes;
-    todo.forEach(function(todo) {
-        switch(e)
+    console.log(todos);
+    todos.forEach(function(todo){
+        //target.value will bring back the value asigned to the selection in the dropdown filter
+        switch (e.target.value) {
+            case "all":
+                todo.style.display = "flex";
+                break;
+            case "completed":
+                if(todo.classList.contains("completed")){
+                    todo.style.display = "flex";
+                } else {
+                    todo.style.display = "none";
+                }
+                break;
+            case "uncompleted":
+                if(!todo.classList.contains("completed")) {
+                    todo.style.display = "flex";
+                } else {
+                    todo.style.display = "none";
+                }
+                break;
+        }
     });
 }
