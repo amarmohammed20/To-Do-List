@@ -3,10 +3,13 @@ const todoInput = document.querySelector('.todo-input');
 const todoButton = document.querySelector('.todo-button');
 const todoList = document.querySelector('.todo-list');
 const filterOption = document.querySelector('.filter-todo');
+const issueList = document.querySelector('.issue-list');
+
 
 //Event Listners
 //Checks if the content on page has loaded than excute the event
 document.addEventListener('DOMContentLoaded', getTodos);
+
 todoButton.addEventListener('click', addToDo);
 todoList.addEventListener('click', deleteCheck);
 filterOption.addEventListener('click', filterTodo);
@@ -68,7 +71,6 @@ function deleteCheck(e) {
 function filterTodo(e) {
     //Brings back all the children of the HTML element ul which is the list of the tasks 
     const todos = todoList.childNodes;
-    console.log(todos);
     todos.forEach(function(todo){
         //target.value will bring back the value asigned to the selection in the dropdown filter
         switch (e.target.value) {
@@ -158,4 +160,12 @@ function removeLocalTodos(todo) {
     todos.splice(todos.indexOf(todoIndex), 1);
     //Set the local storage with the new removal of the item from the array
     localStorage.setItem("todos", JSON.stringify(todos));
+}
+
+function displayIssues() {
+    if(issueList.style.display === 'none') {
+        issueList.style.display = 'block';
+    } else {
+        issueList.style.display = 'none';
+    }
 }
