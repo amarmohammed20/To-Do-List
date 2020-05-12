@@ -1,7 +1,7 @@
 # To-Do-List
 A useful To Do List
 
-# To-Do-List
+# Plain JavaScript
 A simple app driven mainly by plain JavaScript focusing on functions and DOM manipulation.
 
 # Future Development
