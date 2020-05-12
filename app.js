@@ -1,5 +1,3 @@
-//Look into Storage.getItem() - https://developer.mozilla.org/en-US/docs/Web/API/Storage/getItem
-
 //Selectors
 const todoInput = document.querySelector('.todo-input');
 const todoButton = document.querySelector('.todo-button');
@@ -53,6 +51,8 @@ function deleteCheck(e) {
         const todo = item.parentElement;
         //Animation
         todo.classList.add('fall');
+        //Remove the items in the todo list from local storage
+        removeLocalTodos(todo);
         todo.addEventListener('transitionend', function() {
             todo.remove();
         });
@@ -152,5 +152,10 @@ function removeLocalTodos(todo) {
         //The below gets what is already stored and parses it back into an array
     todos = JSON.parse(localStorage.getItem('todos'));
     }
-    console.log(todo)
+    //Brings back the location of that item in the list in the array
+    const todoIndex = todo.children[0].innerText;
+    //Use splice to remove the item from the array
+    todos.splice(todos.indexOf(todoIndex), 1);
+    //Set the local storage with the new removal of the item from the array
+    localStorage.setItem("todos", JSON.stringify(todos));
 }
